@@ -1988,6 +1988,8 @@ namespace Oxide.Plugins
                 return msg("noSpawnsSet");
             if (EventGames[_Event.EventType].RequiresMultipleSpawns && string.IsNullOrEmpty(_Event.Spawnfile2))
                 return msg("noSpawnsSet");
+            if (Joiners.Count < _Event.MinimumPlayers)
+                return msg("notEnoughPlayers");
             return _Started ? msg("alreadyStarted") : null;
         }
         object CanEventJoin(BasePlayer player)
